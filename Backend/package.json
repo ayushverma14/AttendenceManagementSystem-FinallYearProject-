@@ -1,0 +1,23 @@
+{
+  "name": "attendence-backend",
+  "version": "1.0.0",
+  "description": "Attendence management service",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ajv": "^8.11.0",
+    "ajv-formats": "^2.1.1",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^10.0.0",
+    "express": "^4.18.1",
+    "http-errors": "^2.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.6.1",
+    "nodemailer": "^6.7.8",
+    "uuid": "^9.0.0"
+  }
+}
