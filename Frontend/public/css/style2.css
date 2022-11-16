@@ -1,0 +1,27 @@
+.parent {
+  border: 1px solid black;
+  display: flex;
+  padding: 2rem 2rem;
+  text-align: auto;
+  background-color: azure;
+}
+.child {
+  flex:1;
+  border: 1px solid red;
+  padding: 5%;
+  vertical-align: top;
+  background-color: aqua;
+  margin: 10px;
+  
+}
+.child:first-child {
+  margin-right: 20px;
+}
+#camera {
+    width: 350px;
+    height: 350 px;
+    border :1px solid black
+    
+
+
+}

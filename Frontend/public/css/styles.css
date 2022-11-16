@@ -1,0 +1,24 @@
+
+        body{
+            background-color:blue;
+
+        }
+        h1{
+            color: aqua;
+
+        }
+        h2{
+            color: aqua;   
+        }
+        h3{
+            color: aqua;
+        }
+        hr{
+            size: "30";
+            background-color: black;
+            width:40%
+            
+        }
+        img{
+            background-color: aqua;
+        }

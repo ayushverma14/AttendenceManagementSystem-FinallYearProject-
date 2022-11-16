@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- StyleSheet -->
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Sign Up | Login Form</title>
+  </head>
+  <body>
+   
+    <section>
+      <div class="container">
+        <div class="user login">
+          <div class="img-box">
+            <img src="images/nita.jpg" alt="" />
+          </div>
+          <div class="form-box">
+            <div class="top">
+              <p>
+                Not a member?
+                <span data-id="#ff0066">Register now</span>
+              </p>
+            </div>
+            <!-- LOGIN FORM  for connection-->
+            <form action="">
+              <div class="form-control">
+                <h2>Welcome Back!</h2>
+                <!-- user name entry for connection -->
+                <input type="text" placeholder="Enter Username" />
+                <div>
+                  <!-- password for connection -->
+                  <input type="password" placeholder="Password" />
+                  <div class="icon form-icon">
+                    <!-- <img src="./images/eye.svg" alt="" /> -->
+                  </div>
+                </div>
+                <span>Recovery Password</span>
+                <input type="Submit" value="Login" />
+              </div>
+              <div class="form-control">
+                <!-- <p>Or continue with</p> -->
+                <div class="icons">
+                  <div class="icon">
+                    <img src="./images/search.svg" alt="" />
+                  </div>
+                  <div class="icon">
+                    <img src="./images/apple.svg" alt="" />
+                  </div>
+                  <div class="icon">
+                    <img src="./images/facebook.svg" alt="" />
+                  </div>
+                  <div class="icon">
+                    <img src="./images/github.svg" alt="" />
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Register -->
+        <div class="user signup">
+          <div class="img-box">
+            <img src="images/mnnit.jpg" alt="./images/nita.jpg" >
+          </div>
+          <div class="form-box">
+            <div class="top">
+              <p>
+                Already a member?
+                <span data-id="#1a1aff">Login now</span>
+              </p>
+            </div>
+            <!-- Form for connection for the register page -->
+            <form action="/dashboard" method="post">
+              <div class="form-control">
+                <h2>New Member</h2>
+                
+                <input type="email" placeholder="Enter Email" />
+                <div>
+                  <input type="password" placeholder="Password" />
+                  <div class="icon form-icon">
+                    <img src="./images/eye.svg" alt="" />
+                  </div>
+                </div>
+                <div>
+                  <input type="password" placeholder="Confirm Password" />
+                  <div class="icon form-icon">
+                    <img src="./images/eye.svg" alt="" />
+                  </div>
+                  <div>
+                    <input type="phone" placeholder="Contact Number" />
+                    <div class="icon form-icon">
+                      <img src="./images/eye.svg" alt="" />
+                    </div>
+                </div>
+                <div>
+                    <input type="Department" placeholder="Department" />
+                    <div class="icon form-icon">
+                      <img src="./images/eye.svg" alt="" />
+                    </div>
+                    <div>
+                        <input type="email" placeholder="Email" />
+                        <div class="icon form-icon">
+                          <img src="./images/eye.svg" alt="" />
+                        </div>
+                <input type="Submit" value="Register" />
+              </div>
+              <div class="form-control">
+                <!-- <p>Or continue with</p> -->
+                <div class="icons">
+                  <div class="icon">
+                    <img src="./images/search.svg" alt="" />
+                  </div>
+                  <div class="icon">
+                    <img src="./images/apple.svg" alt="" />
+                  </div>
+                  <div class="icon">
+                    <img src="./images/facebook.svg" alt="" />
+                  </div>
+                  <div class="icon">
+                    <img src="./images/github.svg" alt="" />
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+    <!-- IndexJs -->
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -29,7 +29,10 @@ app.use((err, req, res, next) =>{
             message: err.message
     })
 })
-
+app.get('/',function(req,res)
+{
+    res.sendFile('/Frontend/index.html');
+})
 app.listen(8000, ()=>{
     console.log('Server up and running')
 })
