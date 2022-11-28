@@ -24,14 +24,14 @@
               </p>
             </div>
             <!-- LOGIN FORM  for connection-->
-            <form action="">
+            <form action="/api/user/login" method="post">
               <div class="form-control">
                 <h2>Welcome Back!</h2>
                 <!-- user name entry for connection -->
-                <input type="text" placeholder="Enter Username" />
+                <input type="email" placeholder="Enter Email" name="email" />
                 <div>
                   <!-- password for connection -->
-                  <input type="password" placeholder="Password" />
+                  <input type="password" placeholder="Password" name="password"/>
                   <div class="icon form-icon">
                     <!-- <img src="./images/eye.svg" alt="" /> -->
                   </div>
@@ -73,13 +73,17 @@
               </p>
             </div>
             <!-- Form for connection for the register page -->
-            <form action="/dashboard" method="post">
+            <form action="/api/user/register" method="post">
               <div class="form-control">
                 <h2>New Member</h2>
-                
-                <input type="email" placeholder="Enter Email" />
                 <div>
-                  <input type="password" placeholder="Password" />
+                  <input type="text" placeholder="Name" name="name" />
+                  <div class="icon form-icon">
+                    <img src="./images/eye.svg" alt="" />
+                  </div>
+                <input type="email" placeholder="Enter Email" name="email" />
+                <div>
+                  <input type="password" placeholder="Password" name="password"/>
                   <div class="icon form-icon">
                     <img src="./images/eye.svg" alt="" />
                   </div>
@@ -90,21 +94,23 @@
                     <img src="./images/eye.svg" alt="" />
                   </div>
                   <div>
-                    <input type="phone" placeholder="Contact Number" />
+                    <input type="number" placeholder="Semester" name="semester" />
+                    <div class="icon form-icon">
+                      <img src="./images/eye.svg" alt="" />
+                    </div>
+                </div>
+                  <div>
+                    <input type="phone" placeholder="Contact Number" name="contact" />
                     <div class="icon form-icon">
                       <img src="./images/eye.svg" alt="" />
                     </div>
                 </div>
                 <div>
-                    <input type="Department" placeholder="Department" />
+                    <input type="Department" placeholder="Department" name="department"/>
                     <div class="icon form-icon">
                       <img src="./images/eye.svg" alt="" />
                     </div>
-                    <div>
-                        <input type="email" placeholder="Email" />
-                        <div class="icon form-icon">
-                          <img src="./images/eye.svg" alt="" />
-                        </div>
+                  
                 <input type="Submit" value="Register" />
               </div>
               <div class="form-control">

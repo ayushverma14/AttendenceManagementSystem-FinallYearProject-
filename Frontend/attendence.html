@@ -10,10 +10,23 @@
       integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="css/style2.css">
     <title>Document</title>
 </head>
-<body style="background-color: aqua;">
-    <form action="/python" method="post" enctype="multipart/form-data">
+<body style="background-color: whitesmoke;"></body>
+<div class="parent">
+    <div class="child">
+      <!-- enctype="multipart/form-data" -->
+    <form action="/api/user/python" method="post" enctype="multipart/form-data" >
+       
+        <img id="output"  width="200px" height="100px" alt="./public/images/download.png">
+
+       <br>
+
+        <input type="file" accept="image/*" onchange="loadFile(event)" name="img">
+     
+         <br>
+
         <label for="Department">Department</label>
         <br>
         <input type="text" name="dept">
@@ -22,11 +35,36 @@
         <br>
         <input type="text" name="course">
         <br>
-        <h3>Target Image</h3>
+        <label for="image">Target Image</label>
         <br>
-        <input type="file" name="img">
-        <br>
-<button class="btn-primary" type="submit" >Store the attendence</button>
+      
+<button class="btn-primary" type="submit" >Identify the faces</button>
     </form>
+</div>
+<div class="child">
+    <form action="/attend" method="post">
+        <br>
+        <label for="Department">Department</label>
+        <br>
+        <input type="text" name="dept">
+        <br>
+        <label for="Course">Course</label>
+        <br>
+        <input type="text" name="course">
+        <br>
+        <br>
+    <button type="submit" class="btn-primary">Mark the attendence</button>
+    </form>
+</div>
+</div>
+<script>
+    var loadFile = function(event) {
+      var output = document.getElementById('output');
+      output.src = URL.createObjectURL(event.target.files[0]);
+      output.onload = function() {
+        URL.revokeObjectURL(output.src) // free memory
+      }
+    };
+  </script>
 </body>
 </html>

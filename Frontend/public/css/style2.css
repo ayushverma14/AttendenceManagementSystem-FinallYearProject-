@@ -3,25 +3,38 @@
   display: flex;
   padding: 2rem 2rem;
   text-align: auto;
-  background-color: azure;
+  background-color:aqua;
 }
 .child {
   flex:1;
-  border: 1px solid red;
+ 
   padding: 5%;
   vertical-align: top;
-  background-color: aqua;
+  background-color:white;
   margin: 10px;
+  border-radius: 15px;
+  border: 2px solid #000;
   
 }
 .child:first-child {
   margin-right: 20px;
+ 
 }
 #camera {
     width: 350px;
     height: 350 px;
-    border :1px solid black
-    
+    border :2px solid black
+   
 
 
+}
+::-ms-browse {
+  background: black;
+  color: blue;
+  padding: 1em;
+}
+.output {
+  width: 250px;
+  height: 250 px;
+  border :2px solid black
 }

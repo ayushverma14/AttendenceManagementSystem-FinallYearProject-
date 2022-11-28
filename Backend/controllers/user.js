@@ -3,7 +3,7 @@ const jwt=require('jsonwebtoken')
 const bcrypt=require('bcryptjs')
 const nodemailer=require('nodemailer')
 const {v4: uuidv4} = require("uuid")
-
+const path=require('path')
 
 const User=require('../model/user');
 const {registerValidation, loginValidation} = require('../validation')
@@ -52,6 +52,7 @@ exports.user_find_one = async (req, res, next)=>{
 // registering new user
 exports.user_register= async (req, res, next)=>{
     //validating user data
+    console.log(req.body)
     const {valid, error} = registerValidation(req.body)
     
     if (!valid) {
@@ -76,12 +77,16 @@ exports.user_register= async (req, res, next)=>{
     //hash password
     const salt= await bcrypt.genSalt(10);
     const hashedPassword= await bcrypt.hash(req.body.password, salt)
-
+console.log(req.body)
+console.log("done");
     //creating new user
     const user= new User({
         name: req.body.name,
         email: req.body.email,
-        password: hashedPassword
+        password: hashedPassword,
+        semester: (req.body.semester),
+        contact: req.body.contact,
+        department: req.body.department
     });
     console.log(user)
     try{
@@ -98,6 +103,7 @@ exports.user_register= async (req, res, next)=>{
 //login new user
 exports.user_login = async (req, res, next)=>{
     //validating user data
+    console.log(req.body)
     const {valid, error} = loginValidation(req.body)
     
     if (!valid) {
@@ -113,10 +119,10 @@ exports.user_login = async (req, res, next)=>{
             throw createError(404, "Incorrect Email")
         }
 
-        if(!user.verified){
-            next(createError(401, "Email not verified"))
-            return;
-        }
+        // if(!user.verified){
+        //     next(createError(401, "Email not verified"))
+        //     return;
+        // }
 
         const validPass = await bcrypt.compare(req.body.password, user.password)
         if(!validPass){
@@ -126,10 +132,10 @@ exports.user_login = async (req, res, next)=>{
 
         //create web token
         const token = jwt.sign({_id: user._id}, process.env.TOKEN_SECRET)
-        res.header('auth_token', token).send({
-            status: 200,
-            message: 'Successful'
-        })
+        res.header('auth_token', token).sendFile(path.join(__dirname,'../../Frontend/document.html'))
+            // status: 200,
+            // message: 'Successful'
+        
 
     }catch(error){
         next(error)

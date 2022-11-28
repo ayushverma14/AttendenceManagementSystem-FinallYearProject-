@@ -26,6 +26,18 @@ const userSchema = new mongoose.Schema({
     verified: {
         type: Boolean,
         default: false
+    },
+    department: {
+        type: String,
+        required: true
+    },
+    semester: {
+        type: Number,
+        required: true
+    },
+    contact: {
+        type: String,
+        required: true
     }
 })
 

@@ -26,12 +26,28 @@ const registerValidation = (body)=>{
           "date": {
               "type": "string",
               "format": "date"
+          },
+          "department": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 255
+          },
+          "semester": {
+            "type": "string",
+          },
+          "contact": {
+            "type": "string",
+            "minLength": 8,
+            "maxLength": 14
           }
         },
         "required": [
-          "name",
+          // "name",
           "email",
-          "password"
+          "password",
+          // "contact",
+          // "department",
+          // "semester"
         ]
     }
     const valid = ajv.validate(schema, body)

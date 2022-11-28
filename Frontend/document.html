@@ -15,22 +15,40 @@
   </head>
   <body>
     <!--parent div containing two childs div side by side-->
-    <div class="parent">
+    <div class="parent ">
       <div class="child">
-        <form action="/" method="post" enctype="multipart/form-data">
-          <label for="photo">Photograph</label>
+        
+        <form action="/api/user/submit" method="post" enctype="multipart/form-data" >
+       <div class="form-group">
+            <label for="photo">Photograph</label>
+            <br>
+          <img id="output"  width="300px" height="100px" alt="">
+          <br>
+          <input type="file" name="file" id="res" accept="image/*" onchange="loadFile(event)"/>
           <br />
-          <input type="file" name="file" id="res" />
+          
+
+         
+        
           <br />
+         
           <label for="Name">Full Name</label>
-          <br />
+        <br>  
           <input type="text" name="Name" id="" />
-          <br />
-          <br />
-          <label for="Registration">Registration NO.</label>
+        <br>
+          
+          <label for="Registration">Registration No.</label>
           <br />
           <input type="text" name="Registration" id="" />
           <br />
+          <label for="phone">Mobile/Phone</label>
+          <br>
+          <input type="number" name="nums" id="">
+          <br>
+    <label for="email">Email Id.</label>
+    <br>
+    <input type="email" name="email" id="">
+    <br>
           
           <label for="department">Department</label>
           <br />
@@ -48,26 +66,33 @@
           <br />
           <br>
           <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
         </form>
         <br />
 
         <!--Form runs the python script-->
 
-        <form action="/python" method="get">
+        <form action="/api/user/python" method="get">
           <button type="submit" class="btn btn-primary">Take the Attendence</button>
         </form>
       </div>
 
       <div class="child">
+       
         <div id="camera" ></div>
         <div id="results"></div>
         <br />
         <button onclick="take_snapshot()" class="btn btn-primary">
           Click Me
         </button>
-        <button onclick="saveSnap()" class="btn btn-primary">
+        <form action="/api/user/save_snap" method="post">
+          <input type="hidden" name="uri" id="uri">
+          <br>
+        <button type="submit" class="btn btn-primary">
           Save the Image
         </button>
+      </form>
+<br>
         <button onclick="reset()" class="btn btn-primary">
         Reset
         </button>
@@ -95,6 +120,7 @@
         Webcam.snap(function (data_uri) {
           console.log("attaching");
           document.getElementById('camera').innerHTML= '<img src="'+data_uri+'"/>';
+          document.getElementById('uri').value=data_uri;
         });
         
       }
@@ -118,6 +144,15 @@
       {
         Webcam.reset();
       }
+     
+    var loadFile = function(event) {
+      var output = document.getElementById('output');
+      output.src = URL.createObjectURL(event.target.files[0]);
+      output.onload = function() {
+        URL.revokeObjectURL(output.src) // free memory
+      }
+    };
+
     </script>
   </body>
 </html>
