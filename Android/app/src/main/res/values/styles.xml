@@ -1,0 +1,38 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/red_500</item>
+        <item name="colorPrimaryDark">@color/background</item>
+        <item name="android:windowActivityTransitions">true</item>
+        <item name="android:navigationBarColor">@color/background</item>
+        <item name="android:windowBackground">@color/background</item>
+        <item name="android:colorBackground">@color/background</item>
+    </style>
+    
+    <style name="MaterialTheme" parent="Theme.MaterialComponents">
+        <item name="colorPrimary">@color/red_500</item>
+        <item name="colorPrimaryDark">@color/background</item>
+        <item name="colorAccent">@color/red_500</item>
+        <item name="textFillColor">@color/Text</item>
+    </style>
+
+    <style name="ProgressBarStyle">
+        <item name="colorAccent">@color/red_500</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="DialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_in_bottom</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_bottom</item>
+    </style>
+
+</resources>
