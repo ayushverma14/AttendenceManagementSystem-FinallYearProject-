@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "121679909291",
+    "project_id": "trace-cd424",
+    "storage_bucket": "trace-cd424.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:121679909291:android:70b8f5424290d851afc2ee",
+        "android_client_info": {
+          "package_name": "com.dev334.trace"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "121679909291-fupt801moiimja3m757op6j01occ142t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dev334.trace",
+            "certificate_hash": "d0f0784af68d580e07a7f64b1aff0fb9b79dcda6"
+          }
+        },
+        {
+          "client_id": "121679909291-ev8u034oingu1i51i8fhb4b269n1t3hj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0oOzm_hnrFDBYN1vc541i9AHDwrao6Ts"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "121679909291-ev8u034oingu1i51i8fhb4b269n1t3hj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
