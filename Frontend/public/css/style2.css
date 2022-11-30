@@ -3,14 +3,14 @@
   display: flex;
   padding: 2rem 2rem;
   text-align: auto;
-  background-color: azure;
+  background-color: rgb(217, 248, 248);
 }
 .child {
   flex:1;
   border: 1px solid red;
   padding: 5%;
   vertical-align: top;
-  background-color: aqua;
+  background-color: rgb(141, 252, 252);
   margin: 10px;
   
 }
@@ -21,7 +21,4 @@
     width: 350px;
     height: 350 px;
     border :1px solid black
-    
-
-
 }
