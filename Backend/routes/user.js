@@ -8,8 +8,8 @@ const path=require('path')
 //register new user
 router.get('/',(req,res)=>
 {
-    console.log(path.join(__dirname,'../../Frontend/index1.html'))
-    res.sendFile(path.join(__dirname,'../../Frontend/index1.html'))
+    console.log(path.join(__dirname,'../../Frontend/index1'))
+    res.render(path.join(__dirname,'../../Frontend/index1'))
 });
 router.post('/register', UserController.user_register);
 
@@ -45,19 +45,19 @@ router.use(exp.static(path.join(__dirname,'../../Frontend/public/')));
 router.use(bodyParser.urlencoded({ extended: true }));
 router.get('/dashboard',function(req,res)
 {
-  res.sendFile(path.join(__dirname,'../../Frontend/document.html'));
+  res.render(path.join(__dirname,'../../Frontend/document'));
 })
 
 router.get('/login_signup',function(req,res)
 {
     console.log(path.join(__dirname,'../../Frontend/Login_Signup.html'))
-  res.sendFile(path.join(__dirname,'../../Frontend/Login_Signup.html'));
+  res.render(path.join(__dirname,'../../Frontend/Login_Signup'));
 })
 // it executes the python script from node using child
 
 router.get('/python',function(req,res)
 {
-  res.sendFile(path.join(__dirname,'../../Frontend/attendence.html'));
+  res.render(path.join(__dirname,'../../Frontend/attendence'));
 });
 router.post("/python", function (req, res) {
   console.log(req.body.course)
@@ -114,7 +114,81 @@ router.post("/submit", function (req, res) {
   }
 
 });
+router.post('/short_attendence/email',(req,res)=>
+{
+  console.log(req.body)
+
+  const child = spawn("python", ["../Python_source_files/sms.py",req.body.email,req.body.dept]);
+
+    child.stdout.on("data", (data) => {
+      console.log(typeof(data));
+      
+      console.log(`stdout:${data}`);
+      //alert("Submitted Succesfully");
+    });
+    child.stderr.on("data", (data) => {
+      console.log(`stdout:${data}`);
+      //alert(`Error:${data}`);
+    });
+    child.on("close", (data) => {
+      console.log(`stdout:${data}`);
+    });
+})
+
+router.post('/short_attendence',(req,res)=>
+{
+  var course=req.body.course
+  var department=req.body.department
+  console.log(req.body)
+  const child = spawn("python", ["../Python_source_files/short_attendence.py",department,course]);
+
+  child.stdout.on("data", (data) => {
+    
+    
+  console.log(`stdout:${data}`);
+ 
+   console.log(data)
+   console.log(typeof(data));
+   
+   
+   console.log(data.toString('utf8'))
+   data=data.toString('ascii');
+   res1=[];
+   var i=0;
+   while( i<data.length)
+   {
+    r1="";
+    
+    while((data[i]>='A' && data[i]<='Z')||(data[i]>='a' && data[i]<='z')||(data[i]>='0' && data[i]<='9')||(data[i]=='@' || data[i]=='.'))
+    {r1=r1+data[i];
+      i++;}
+//r1=data[i][0]+'_'+data[i][1];
+console.log(r1);
+if(r1.length!=0)
+res1.push(r1);
+i++;
+   }
+   
+   console.log(res1);
+   res.render(path.join(__dirname,'../../Frontend/short_attendence'),{data:res1});
+    //alert("Submitted Succesfully");
+  });
+  child.stderr.on("data", (data) => {
+    console.log(`stdout:${data}`);
+    //alert(`Error:${data}`);
+  });
+  child.on("close", (data) => {
+    console.log(`stdout:${data}`);
+  });
+
+})
+router.get('/short_attendence',(req,res)=>
+{
+  data=[]
+  res.render(path.join(__dirname,'../../Frontend/short_attendence'),{data:data});
+});
 //saving the snap_shot on registration portal
+
 router.post('/save_snap',(req,res)=>
 {
   const child = spawn("python", ["../Python_source_files/snap.py",req.body.uri]);

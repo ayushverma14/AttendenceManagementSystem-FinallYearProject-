@@ -132,7 +132,7 @@ exports.user_login = async (req, res, next)=>{
 
         //create web token
         const token = jwt.sign({_id: user._id}, process.env.TOKEN_SECRET)
-        res.header('auth_token', token).sendFile(path.join(__dirname,'../../Frontend/document.html'))
+        res.header('auth_token', token).render(path.join(__dirname,'../../Frontend/document'))
             // status: 200,
             // message: 'Successful'
         

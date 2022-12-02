@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+    crossorigin="anonymous"
+  />
+    <title>Short_attendence</title>
+</head>
+<body style="background-color: aqua;">
+    <!-- As a link -->
+<nav class="navbar bg-success " style="text-align: center;">
+    <div class="container-fluid" style="text-align: center;">
+      <h4 style="text-align: center;color: white;">Short Attendence Portal</h4>
+    </div>
+  </nav>
+  
+
+    <div class="parent" style="background-color: white;margin: 10px">
+<form action="/api/user/short_attendence" method="post">
+    <label for="" style="margin: 10px">Course</label>
+    <input type="text" style="margin: 10px" name="course" style="color:blue"> 
+    <label for="" style="margin: 10px">Department</label>
+    <input type="text" style="margin: 10px" name="department" style="color:blue"> 
+   <button class="submit btn btn-primary " style="margin: 10px">Fetch Data </button>
+</form>
+    </div>
+    
+ <% for(var i=0;i<data.length;i+=3){%>
+  <div class="second" style="background-color: white;margin: 10px;border:1px solid black">
+
+    <form action="/api/user/short_attendence/email" method="post" style="margin: 10px">    
+   <h5 style="color:red;">Department:</h5>
+      <h5 name="name"><%=data[i]%></h5>
+      <h5 style="color:red;">Name:</h5>
+    <h5 name="email"><%=data[i+1]%></h5>
+    <h5 style="color:red;">Email:</h5>
+    <h5 name="email"><%=data[i+2]%></h5>
+    <input type="hidden" name="dept"  value=<%=data[i]%>  > 
+    <input type="hidden" name="email"  value=<%=data[i+2]%>  > 
+   
+    <label  value=<%=data[i][1]%> id="email" style="color:blue;margin: 10px">
+    <label  value=<%=data[i][2]%> id="phone" style="color:blue;margin: 10px">
+
+    <button onclick="send_email()" class="submit btn btn-danger">Send Email</button>
+   
+</form>
+</div>
+        <%};%>
+  <script>
+    function send_email()
+    {
+      
+    }
+  </script>
+</body>
+</html>

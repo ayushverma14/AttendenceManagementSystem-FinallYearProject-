@@ -8,6 +8,8 @@ const userRoute = require('./routes/user');
 const bodyParser = require('body-parser')
 const path=require('path')
 const upl = require("express-fileupload");
+app.set('views', path.join(__dirname, '../Frontend'));
+app.set('view engine','ejs');
 mongoose.connect(process.env.DB_CONNECT,{useNewUrlParser: true}, (err)=>{
     if(err){
        
@@ -38,9 +40,6 @@ app.use((err, req, res, next) =>{
 })
 app.get('/api/user',function(req,res)
 {
-
-
-    
     res.sendFile(__dirname+'/Frontend/index1.html');
 })
 app.listen(8000, ()=>{
