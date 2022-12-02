@@ -5,6 +5,7 @@ const app=express();
 require('dotenv').config();
 const mongoose=require('mongoose')
 const userRoute = require('./routes/user');
+const adminRoute = require('./routes/admin')
 const bodyParser = require('body-parser')
 const path=require('path')
 const upl = require("express-fileupload");
@@ -12,7 +13,7 @@ app.set('views', path.join(__dirname, '../Frontend'));
 app.set('view engine','ejs');
 mongoose.connect(process.env.DB_CONNECT,{useNewUrlParser: true}, (err)=>{
     if(err){
-       
+
         console.log("Error connecting MongoDB: " + err.message)
     }else{
         console.log('Mongo DB running')
@@ -26,6 +27,8 @@ app.use(bodyParser.urlencoded({
 app.use(express.static(path.join(__dirname,'../Frontend/public/')));
 //authentication route
 app.use('/api/user', userRoute);
+
+app.use('/api/admin', adminRoute);
 
 app.use((req, res, next)=>{
     next(createError(404, 'Not found'))

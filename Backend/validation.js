@@ -95,5 +95,44 @@ const loginValidation = (body)=>{
     }
 }
 
+const attendanceValidation = (body)=>{
+  const schema = {
+      "type": "object",
+      "properties": {
+        "department": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 255
+        },
+        "semester": {
+          "type": "string"
+        },
+        "date": {
+            "type": "string",
+        },
+        "pictures": {
+          "type": "array"
+        }
+      },
+      "required": [
+        "department",
+        "semester",
+        "date",
+        "pictures"
+      ]
+  }
+  const valid = ajv.validate(schema, body)
+  var error=ajv.errors;
+  if(!valid){
+      error = ajv.errors[0].message
+  }
+
+  return {
+      valid,
+      error
+  }
+}
+
 module.exports.registerValidation = registerValidation;
 module.exports.loginValidation = loginValidation;
+module.exports.attendanceValidation = attendanceValidation;
