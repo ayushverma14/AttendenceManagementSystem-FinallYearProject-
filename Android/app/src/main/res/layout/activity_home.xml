@@ -52,7 +52,7 @@
         android:layout_marginEnd="16dp"
         android:backgroundTint="@color/GreyPrimary"
         android:drawableLeft="@drawable/ic_baseline_place_24"
-        android:entries="@array/array_blood_group"
+        android:entries="@array/array_subject_group"
         android:popupBackground="@color/background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

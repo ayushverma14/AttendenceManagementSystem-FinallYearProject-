@@ -40,10 +40,10 @@ exports.upload_pictures = async (req, res, next)=>{
 //download pictures
 exports.download_pictures = async (req, res, next)=>{
     //subject, date, department, semester from recieved data
-    const {date, department, semester} = req.query
+    const {date, department, subject} = req.query
     //finding attendance
     try{
-        const attendance = await Attendance.findOne({department: department,date: date,semester: semester})
+        const attendance = await Attendance.findOne({department: department,date: date,subject: subject})
         if(attendance){
             res.status(200).send(attendance)
         }else{
