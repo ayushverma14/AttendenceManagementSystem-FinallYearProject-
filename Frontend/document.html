@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/style2.css" />
+    <link rel="stylesheet" href="/Frontend/public/css/style2.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -26,16 +26,28 @@
           <br />
           <input type="text" name="Name" id="" />
           <br />
-          <br />
+          
           <label for="Registration">Registration NO.</label>
           <br />
           <input type="text" name="Registration" id="" />
           <br />
           
           <label for="department">Department</label>
+          <br/>
+          <select name="department" id="department">
+            <option value="cs">Computer Science and Engineering</option>
+            <option value="info">Information Technology</option>
+            <option value="ece">Electronics and Communication Engineering</option>
+            <option value="elect">Electrical Engineering</option>
+            <option value="civil">Civil Engineering</option>
+            <option value="pie">Production & Industrial Engineering</option>
+            <option value="chem">Chemical Engineering</option>
+            <option value="bio">Bio-Technology</option>
+            <option value="mech">Mechanical Engineering</option>
+          </select>
           <br />
-          <input type="text" name="department" id="" />
-          <br />
+          <!--<input type="text" name="department" id="" /> -->
+          
           <label for="Courses">Courses</label>
           <br>
           <select name="course" id="course">
